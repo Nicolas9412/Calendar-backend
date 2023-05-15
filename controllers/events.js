@@ -21,14 +21,12 @@ const crearEvento = async (req, res = response) => {
       msg: "Hable con el administrador",
     });
   }
-  console.log(req.body);
-  res.json({ ok: true, msg: "crearEventos" });
 };
 const actualizarEvento = async (req, res = response) => {
   const eventoId = req.params.id;
   const uid = req.uid;
   try {
-    const evento = await Evento.findById(id);
+    const evento = await Evento.findById(eventoId);
     if (!evento) {
       res.status(404).json({
         ok: false,
@@ -61,7 +59,6 @@ const actualizarEvento = async (req, res = response) => {
       msg: "Hable con el administrador",
     });
   }
-  res.json({ ok: true, msg: "actualizarEventos" });
 };
 const eliminarEvento = async (req, res = response) => {
   const uid = req.uid;
