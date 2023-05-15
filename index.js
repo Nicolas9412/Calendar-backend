@@ -22,8 +22,8 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/events", require("./routes/events"));
 
-app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "public") });
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 // Escuchar petición
